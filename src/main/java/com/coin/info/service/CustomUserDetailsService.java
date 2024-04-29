@@ -14,7 +14,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // 在这里添加实际的用户查找逻辑
+        // 在这里添加实际的用户查找逻辑 ，到时候这边还需要读取数据库进行加解密
         if ("admin".equals(username)) {
             return new User(
                     "admin",
