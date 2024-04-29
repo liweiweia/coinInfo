@@ -9,6 +9,7 @@ public class User {
     @TableId(type = IdType.AUTO)
     private Long id;
     private String name;
+    private String password;
     private Integer age;
     private String email;
     // 省略其他字段
