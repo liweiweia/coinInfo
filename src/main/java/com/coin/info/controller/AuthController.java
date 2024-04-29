@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 
 @RestController
 public class AuthController {
-    @Resource
+    @Autowired
     private AuthenticationManager authenticationManager;
 
     @Resource
