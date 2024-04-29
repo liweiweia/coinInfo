@@ -20,7 +20,7 @@ public class AuthController {
     @Resource
     private AuthenticationManager authenticationManager;
 
-    @Autowired
+    @Resource
     private JwtUtil jwtUtil;
 
     @PostMapping("/api/auth/login")

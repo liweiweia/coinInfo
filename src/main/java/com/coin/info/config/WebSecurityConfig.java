@@ -1,16 +1,17 @@
 package com.coin.info.config;
 
 import com.coin.info.filter.JwtRequestFilter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import javax.annotation.Resource;
+
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
+    @Resource
     private JwtRequestFilter jwtRequestFilter;
 
     @Override
