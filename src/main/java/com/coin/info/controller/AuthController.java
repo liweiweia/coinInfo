@@ -3,7 +3,6 @@ package com.coin.info.controller;
 import com.coin.info.entity.AuthenticationResponse;
 import com.coin.info.entity.User;
 import com.coin.info.utils.JwtUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,7 +23,7 @@ import javax.annotation.Resource;
  */
 @RestController
 public class AuthController {
-    @Autowired
+    @Resource
     private AuthenticationManager authenticationManager;
 
     @Resource
