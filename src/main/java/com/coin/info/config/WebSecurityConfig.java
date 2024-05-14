@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.annotation.Resource;
@@ -26,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 // 允许所有人访问登录和注册端点
-                .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/auth/**","/api/articles/page").permitAll()
                 .anyRequest().authenticated()  // 其他所有请求需要身份验证
                 .and()
                 .sessionManagement()
@@ -43,4 +45,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // Ensures that AuthenticationManager is exposed as a Bean
         return super.authenticationManagerBean();
     }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
 }
