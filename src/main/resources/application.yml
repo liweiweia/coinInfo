@@ -4,6 +4,9 @@ spring:
     url: jdbc:mysql://192.168.168.131:3306/coin_info?useSSL=false&serverTimezone=UTC
     username: root
     password: root
+  messages:
+    basename: messages
+    encoding: UTF-8
 
 # mybatis-plus配置
 mybatis-plus:
