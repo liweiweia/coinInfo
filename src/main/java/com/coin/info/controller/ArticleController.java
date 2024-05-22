@@ -1,12 +1,14 @@
 package com.coin.info.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.coin.info.entity.Article;
 import com.coin.info.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -48,6 +50,8 @@ public class ArticleController {
             @RequestParam(name = "page", defaultValue = "1") int page,
             @RequestParam(name = "size", defaultValue = "10") int size) {
         Page<Article> articlePage = new Page<>(page, size);
+        // 添加按创建时间倒序排序条件
+        articlePage.setOrders(Arrays.asList(OrderItem.desc("createdAt")));
         return articleService.page(articlePage);
     }
 }
