@@ -51,7 +51,7 @@ public class ArticleController {
             @RequestParam(name = "size", defaultValue = "10") int size) {
         Page<Article> articlePage = new Page<>(page, size);
         // 添加按创建时间倒序排序条件
-        articlePage.setOrders(Arrays.asList(OrderItem.desc("createdAt")));
+        articlePage.setOrders(Arrays.asList(OrderItem.desc("created_at")));
         return articleService.page(articlePage);
     }
 }
